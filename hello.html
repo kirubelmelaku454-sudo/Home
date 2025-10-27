@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>My Portfolio | Single Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header{
+            display: flex;
+            background: #333;
+            color: rgb(244, 8, 232);
+            padding: 10px;
+            text-align: center;
+            font-size: 3em;
+            margin-top: 0%;
+            justify-content: space-between;
+        }
+
+        nav {
+            background: #555;
+            text-align: right;
+            padding: 0.5em 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8em 1.5em;
+            display:inline-block;
+            transition: background-color 0.3s;
+        }
+        header div {
+            
+            position: relative;
+            width: 15vw;
+            height: 12vw;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #fff;
+            overflow: hidden;
+            margin-top:  0;
+            float: top;
+        
+        
+        }
+
+
+        header div img{
+            position: absolute;
+            top: 0%;
+            display: block;
+            width: 100%;
+
+            margin-bottom: 100px;
+            margin-left: 0;
+            float: left;
+        }
+
+        nav a:hover {
+            background-color: #777;
+        }
+
+        section {
+            padding: 2em;
+            margin: 1.5em auto;
+            max-width: 1000px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 1em;
+        }
+
+
+        #home .home-container {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-around; 
+            flex-wrap: wrap; 
+            padding: 2em 1em;
+            text-align: left;
+            
+        
+            border-radius: 8px; 
+        box-shadow: 0 0 20px #fff 
+            
+            
+        }
+
+        #home .home-photo {
+            max-width: 300px; 
+            height: auto;
+
+            border-radius:  8px; 
+            border: 3px solid #007bff; 
+            margin: 1em; 
+            box-shadow: 0 0 20px #fff 
+        }
+
+        #home .home-text {
+            flex-grow: 1; 
+            max-width: 500px;
+            padding: 1em;
+        }
+        #home .download-social{
+            display: flex;
+            align-items: center;
+
+        }
+
+        #home .social-icons{
+            margin-left: 20px;
+        }
+        #home .social-icons a{
+            display: inline-flex;
+            padding-left: 8px;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: .5s;
+        }
+        #home .social-icons a:hover{
+            background: #fff;
+            box-shadow: 0 0 10px #fff;
+            color: #333;
+        }
+
+        #home h1 {
+            margin-top: 0;
+            color: #04ea36; 
+            font-size: 3em;
+        }
+        #home h3{
+            color: gold;
+        }
+
+        @media (max-width: 768px) {
+            #home .home-container {
+
+                flex-direction: column; 
+                text-align: center;
+            }
+
+            #home .home-photo {
+                max-width: 80%; 
+            }
+        }
+
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 1.5em;
+        }
+        #projects {
+            background-color:rgb(3, 3, 110)
+        }
+        #pro{
+            background: url(Back.jpg) no-repeat center / cover;
+
+        }
+        .project {
+            border: 1px solid #ddd;
+            padding: 1em;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            background-color: rgb(6, 119, 127);
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project h3 {
+            color: #007bff;
+        }
+        .project cpp h3, p{
+            color: #e306f3;
+        }
+        #dis,#ls,#you{
+            color:greenyellow;
+        }
+        #sys{
+            color: goldenrod;
+        }
+
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .filter-controls button:hover {
+            background-color: #0056b3;
+        }
+
+        #contact form {
+            display: grid;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        #contact {
+            background: url(Dad.jpg) no-repeat center / cover;
+        }
+        #con{
+            background: url(New.jpg) no-repeat center / cover;
+
+        }
+
+        #contact input[type="text"],
+        #contact input[type="email"],
+        #contact textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #contact button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-size: 1.1em;
+        }
+
+        #contact button[type="submit"]:hover {
+            background-color: #1e7e34;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 2em;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5em;
+        }
+
+        footer li {
+            display: block;
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            #home .home-container {
+                flex-direction: column;
+                backdrop-filter: rgba(255,255,255, .1)
+            }
+
+            #home .home-text {
+                max-width: 60%;
+                margin-top: 1em;
+            }
+
+            nav a {
+                display: block;
+                padding: 0.5em;
+            }
+        }
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            background: url(mom.jpg) no-repeat center / cover;
+        }
+        
+        .skill-category {
+            background-color: #055b7d;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .skill-category h4 {
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .skill-category ul {
+            list-style-type: none;
+        }
+        
+        .skill-category ul li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+            color: rgb(135, 50, 232);
+        }
+        
+        .skill-category ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0af9e1;
+        }
+        #about p{
+            color: gold;
+        }
+        #about {
+            background: url(mom.jpg) no-repeat center / cover;
+        }
+        #home {
+            background: url(mom.jpg) no-repeat center / cover;
+        }
+        #body{
+            background: url(Middle.jpg) no-repeat center / cover;
+        }
+        #div{
+            background: url(Middle.jpg)no-repeat center / cover  ;
+        }
+        #About {
+            background: url(mom.jpg) no-repeat center / cover;
+
+        }
+        #down {
+            background-color: #007bff;
+        }
+        #down:hover{
+            color: rgb(241, 12, 127);
+            background-color: cyan;
+        }
+        #heven{
+            position: relative;
+            width: 30vw;
+            height: 30vw;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #fff;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        My Portfolio
+        <div ><img src="Logo.jpg" alt="Logo"></div>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <div class="home-container">
+            <div class="home-photo">
+                <img src="Abr.jpg" alt="Home Profile Photo" style="width:100%; height:auto;">
+            </div>
+            <div class="home-text">
+                <h1>Hello, I'm Kirubel Melaku</h1>
+                <h3>Computer Science Student & Developer</h3>
+                <p>Welcome to my portfolio! I'm passionate about building scalable software and solving complex problems with efficient code. Check out my projects below to see what I've been working on.</p>
+                <div class="download-social">
+                    <a href="#" id="down" style="padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px; text-decoration: none;">Download CV (Placeholder)</a>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h1>About Me</h1>
+        <p>I am Kirubel Melaku, a Computer Science student passionate about software development and problem-solving. I specialize in competitive programming, object-oriented design, and database management.</p>
+        
+        <p>Feel free to look through my projects to see my technical skills in action.</p>
+    
+
+        <div class="skills-container">
+            <div id="heven">
+                <img src="Abr.jpg" alt="Profile Picture" style="width:100%; height:100%; object-fit: cover;">
+            </div>
+            <div>
+                <div class="skill-category">
+                    <h4>I have learned:</h4>
+                    <ul>
+                        <li> HTML </li>
+                        <li> CSS</li>
+                        <li >  JavaScript</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="skill-category">
+                    <h4>Currently learning:</h4>
+                    <ul>
+                        <li>Responsive Web Design</li>
+                        <li>Front-End Web Development</li>
+                        <li>Back-End Web Development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="pro">
+        <section id="projects">
+            <h1>Projects</h1>
+
+            <div class="filter-controls">
+                <button onclick="filterProjects('all')">Show All</button>
+                <button onclick="filterProjects('sql')">SQL</button>
+                <button onclick="filterProjects('java')">Java</button>
+                <button onclick="filterProjects('cpp')">C++</button>
+            </div>
+
+            <div class="projects-grid" >
+                <div class="project sql">
+                    <h3>Project One</h3>
+                    <p>Library Management System <br> Database SQL code <br> <a href="Database.txt" download id="down">Download SQL </a></p>
+                </div>
+                <div class="project java">
+                    <h3>Project Two</h3>
+                    <p>Library Management System <br> Java code <br> <a href="Oop.txt" download id="down">Download Java </a></p>
+                </div>
+                <div class="project cpp">
+                    <h3>Project Three</h3>
+                    <p>Automatic Teller Machine <br> C++ code <br> <a href="Algorithm.cpp" download id="down">Download c++ </a></p>
+                </div>
+            </div>
+            
+            <p id="dis">This page contains projects which are done in the previous year by me and my group members. Those projects can perform their own tasks. Let's see one by one ... 
+                <ul id="ls">
+                    <li id="sys"><b>Library Management system</b></li>
+                    <dt>This project is designed to minimize the load of the librarian by changing the analog system to a digital one. We completed this project using Database SQL code and Java code.</dt>
+                    <li id="sys"><b>Automatic Teller Machine</b></li>
+                    <dt>This project demonstrates the operations of the system inside the machine beyond the user. We used short, clear, readable, and understandable C++ code.</dt>
+                </ul>
+            </p>
+            <p id="you">You can see all project files using the links above.</p>
+        </section>
+    </div>
+    
+    <div id="con">
+        <section id="contact">
+            <h1>Contact Me</h1>
+            <form id="contactForm" action="mailto:kirubelmelaku454@gmail.com" method="POST" enctype="text/plain">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <p id="statusMessage" style="text-align: center; margin-top: 10px;"></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Kirubel Melaku | All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // --- 2. Project Filtering (for project.html) ---
+
+        // This function is called by the filter buttons in project.html
+        function filterProjects(category) {
+            // Select all divs with the class 'project'
+            const projects = document.querySelectorAll('.project');
+            
+            projects.forEach(project => {
+                // 'all' category or if the project has the matching technology class
+                if (category === 'all' || project.classList.contains(category)) {
+                    project.style.display = 'block'; // Show the project
+                } else {
+                    project.style.display = 'none'; // Hide the project
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const statusMessage = document.getElementById('statusMessage');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    // Prevent the default form submission (which would navigate away)
+                    event.preventDefault();
+
+                    // Basic check for form validity (all 'required' fields are filled)
+                    if (contactForm.checkValidity()) {
+                        // Get form data
+                        const name = contactForm.elements['name'].value;
+                        const email = contactForm.elements['email'].value;
+                        const message = contactForm.elements['message'].value;
+
+                        // Construct the mailto link content
+                        const subject = 'New message from your portfolio website';
+                        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+                        
+                        // Encode the subject and body for the URL
+                        const mailtoLink = `mailto:kirubelmelaku454@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                        // Open the user's email client
+                        window.open(mailtoLink, '_self');
+
+                        // Display success message
+                        statusMessage.textContent = 'Message sent successfully! Your email client should have opened to finish sending.';
+                        
+                        // Clear the form after a successful attempt
+                        contactForm.reset();
+
+                        // Clear the message after a few seconds (optional)
+                        setTimeout(() => {
+                            statusMessage.textContent = '';
+                        }, 8000); // Clears after 8 seconds
+
+                    } else {
+                        // If the browser thinks the form is invalid, let the browser's default validation message show.
+                        statusMessage.textContent = 'Please fill out all required fields correctly.';
+                        statusMessage.style.color = 'red';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
